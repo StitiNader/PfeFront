@@ -1,0 +1,176 @@
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+  data-sidebar-position="fixed" data-header-position="fixed">
+  <!-- Sidebar Start -->
+  <aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div>
+      <div class="brand-logo d-flex align-items-center justify-content-between">
+        <a href="./dashboard" class="text-nowrap logo-img">
+          <img alt="Couplage Téléphonique Informatique : CTI Network " src="/assets/images/logos/ctinetwork.png"
+            width="180" alt="" />
+        </a>
+        <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+          <i class="ti ti-x fs-8"></i>
+        </div>
+      </div>
+
+      <!-- Sidebar navigation-->
+      <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+        <ul id="sidebarnav">
+          <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <a routerLink="/dashboard/ajouter"  class="btn btn-primary">Ajouter un contact</a>
+          <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">COMPONENTS</span>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="/dashboard/contacts" aria-expanded="false"
+              style="background-color: rgba(93,135,255,0.1); color: #5D87FF">
+              <span>
+                <i class="ti ti-users"></i>
+              </span>
+              <span class="hide-menu">Contacts</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" routerLink="./ui-Frequents.html" aria-expanded="false">
+              <span>
+                <i class="ti ti-loop ti-clock"></i>
+              </span>
+              <span class="hide-menu">Appointments</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" routerLink="./ui-Autres contacts.html" aria-expanded="false">
+              <span>
+                <i class="ti ti-file"></i>
+              </span>
+              <span class="hide-menu">Autres contacts</span>
+              <i class="fa-sharp fa-solid fa-circle-info"></i>
+            </a>
+        </ul>
+      </nav>
+      <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+  </aside>
+  <!--  Sidebar End -->
+  <!--  Main wrapper -->
+  <div class="body-wrapper">
+    <!--  Header Start -->
+    <header class="app-header">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <ul class="navbar-nav">
+          <li class="nav-item d-block d-xl-none">
+            <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+              <i class="ti ti-menu-2"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+              <i class="fa-sharp fa-solid fa-bell fa-shake"></i>
+              <div class="notification bg-primary rounded-circle"></div>
+            </a>
+          </li>
+        </ul>
+        <div class="search-bar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Rechercher" name="rechercher" style="width: 1000px;">
+        </div>
+        <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+          <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+            <li class="nav-item dropdown">
+              <a class="nav-link nav-icon-hover" href="javascrip  t:void(0)" id="drop2" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="../assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+              </a>
+              <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                <div class="message-body">
+                  <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                    <i class="ti ti-user fs-6"></i>
+                    <p class="mb-0 fs-3">My Profile</p>
+                  </a>
+                  <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                    <i class="ti ti-mail fs-6"></i>
+                    <p class="mb-0 fs-3">My Account</p>
+                  </a>
+                  <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                    <i class="ti ti-list-check fs-6"></i>
+                    <p class="mb-0 fs-3">My Task</p>
+                  </a>
+                  <a (click)="logout()" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!--  Header End -->
+    <div class="container-fluid">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold mb-4">Contacts list</h5>
+            <div class="card">
+              <div class="card-body">
+                <div class="container w-full">
+                  <form [formGroup]="form" (ngSubmit)="modifierContact()"
+                    class="d-flex flex-column align-items-center gap-3 ">
+                    <h2>Modifier un contact</h2>
+                    <div class="form-group w-full">
+                      <label for="photo">
+                        <i class="fas fa-camera"></i>
+                        <span>Ajouter une photo</span>
+                      </label>
+                      <input type="file" id="photo" name="photo" accept="image/*">
+
+                    </div>
+                    <div class="form-group d-flex gap-3">
+                      <input formControlName="nom" type="text" id="nom" name="nom" required>
+                      <label for="nom"><i class="fas fa-user"></i> Nom</label>
+                    </div>
+                    <div class="form-group d-flex gap-3">
+                      <input formControlName="prenom" type="text" id="prenom" name="prenom" required>
+                      <label for="prenom"><i class="fas fa-user"></i> Prénom</label>
+                    </div>
+                    <div class="form-group d-flex gap-3">
+                      <input formControlName="entreprise"type="text" id="entreprise" name="entreprise">
+                      <label for="entreprise"><i class="fas fa-building"></i> Entreprise</label>
+                    </div>
+                    <div class="form-group d-flex gap-3">
+                      <input formControlName="service" type="text" id="service" name="service">
+                      <label for="service"><i class="fas fa-tools"></i> Service</label>
+                    </div>
+                    <div class="form-group d-flex gap-3">
+                      <input  formControlName="fonction"type="text" id="fonction" name="fonction">
+                      <label for="fonction"><i class="fas fa-user-tag"></i> Fonction</label>
+                    </div>
+                    <div class="form-group d-flex gap-3">
+                      <input formControlName="email" type="email" id="email" name="email" required>
+                      <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                    </div>
+                    <div class="form-group d-flex gap-3">
+                      <input  formControlName="num_tel"type="tel" id="telephone" name="telephone">
+                      <label for="telephone"><i class="fas fa-phone"></i> Téléphone</label>
+                    </div>
+                    <div class="form-group d-flex gap-3">
+                      <input formControlName="datedenaissance" type="date" id="date_naissance" name="date_naissance">
+                      <label for="date_naissance"><i class="fas fa-calendar-alt"></i> Date de naissance</label>
+                    </div>
+                    <div class="form-group d-flex gap-3">
+                      <textarea formControlName="commentaire" id="commentaire" name="commentaire" rows="4"></textarea>
+                      <label for="commentaire"><i class="fas fa-comment"></i> Commentaire</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" >Mettre à jour les informations</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

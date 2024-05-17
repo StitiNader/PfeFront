@@ -1,0 +1,50 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="ajouterContact()">
+      <h2>Ajouter un contact</h2>
+      <div class="form-group">
+        <label for="photo">
+            <i class="fas fa-camera"></i>
+            <span>Ajouter une photo</span>
+        </label>
+        <input  type="file" id="photo" name="photo" accept="image/*">
+
+    </div>
+      <div class="form-group">
+          <input  formControlName="nom"type="text" id="nom" name="nom" required>
+          <label for="nom"><i class="fas fa-user"></i> Nom</label>
+      </div>
+      <div class="form-group">
+          <input  formControlName="prenom"type="text" id="prenom" name="prenom" required>
+          <label for="prenom"><i class="fas fa-user"></i> Prénom</label>
+      </div>
+      <div class="form-group">
+        <input  formControlName="entreprise"type="text" id="entreprise" name="entreprise">
+        <label for="entreprise"><i class="fas fa-building"></i> Entreprise</label>
+    </div>
+    <div class="form-group">
+        <input  formControlName="service"type="text" id="service" name="service">
+        <label for="service"><i class="fas fa-tools"></i> Service</label>
+    </div>
+    <div class="form-group">
+        <input  formControlName="fonction"type="text" id="fonction" name="fonction">
+        <label for="fonction"><i class="fas fa-user-tag"></i> Fonction</label>
+    </div>
+      <div class="form-group">
+          <input formControlName="email"type="email" id="email" name="email" required>
+          <label for="email"><i class="fas fa-envelope"></i> Email</label>
+      </div>
+      <div class="form-group">
+          <input formControlName="num_tel" type="number" id="telephone" name="telephone">
+          <label for="telephone"><i class="fas fa-phone"></i> Téléphone</label>
+      </div>
+      <div class="form-group">
+          <input  formControlName="datedenaissance"type="date" id="date_naissance" name="date_naissance">
+          <label for="date_naissance"><i class="fas fa-calendar-alt"></i> Date de naissance</label>
+      </div>
+      <div class="form-group">
+          <textarea formControlName="commentaire" id="commentaire" name="commentaire" rows="4"></textarea>
+          <label for="commentaire"><i class="fas fa-comment"></i> Commentaire</label>
+      </div>
+      <button type="submit" >Ajouter le contact</button>
+  </form>
+</div>
